@@ -4,26 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38fed18c-04e6-4ee8-9669-18d985a36a1a" name="Changes" comment="initial project">
+    <list default="true" id="38fed18c-04e6-4ee8-9669-18d985a36a1a" name="Changes" comment="fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/passman/Application.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/Administration.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/CitySchema.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/Databases.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/HTTP.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/Monitoring.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/Routing.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/Security.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/Serialization.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/Sockets.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/Templating.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/plugins/UsersSchema.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/passman/ApplicationTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/passman/ApplicationTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RESET_MODE" value="HARD" />
@@ -55,7 +52,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Kotlin.ApplicationKt">
+    <configuration name="ApplicationKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.ApplicationKt" />
+      <module name="pass-man-backend" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.passman.ApplicationKt" />
       <module name="pass-man-backend" />
@@ -66,6 +70,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.ApplicationKt" />
+        <item itemvalue="Kotlin.ApplicationKt (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -77,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680302097923</updated>
-      <workItem from="1680302100281" duration="1200000" />
+      <workItem from="1680302100281" duration="1863000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1680302680116</created>
@@ -86,7 +91,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680302680116</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixes">
+      <created>1680303334838</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680303334838</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fixes">
+      <created>1680303383308</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680303383308</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,6 +124,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial project" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial project" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>
