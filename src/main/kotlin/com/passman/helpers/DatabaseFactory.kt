@@ -21,7 +21,7 @@ object DatabaseFactory {
         log.info("Connecting to database: $jdbcURL as $user with password $password")
         val database = Database.connect(jdbcURL, driverClassName, user, password)
         transaction(database) {
-            SchemaUtils.create(Passwords)
+            SchemaUtils.create(PasswordEntries)
         }
     }
 
