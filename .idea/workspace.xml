@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38fed18c-04e6-4ee8-9669-18d985a36a1a" name="Changes" comment="fixes">
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/passman/helpers/DatabaseFactory.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/passman/helpers/models/Password.kt" afterDir="false" />
+    <list default="true" id="38fed18c-04e6-4ee8-9669-18d985a36a1a" name="Changes" comment="migrated password into dataclass that automatically gets created in the database&#10;docker-compose helps by deploying test db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/passman/Application.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/helpers/DB_Connector.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/helpers/Password.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/passman/helpers/Password.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +118,7 @@
       <option name="presentableId" value="Default" />
       <updated>1680302097923</updated>
       <workItem from="1680302100281" duration="3943000" />
-      <workItem from="1680342305723" duration="4054000" />
+      <workItem from="1680342305723" duration="5212000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1680302680116</created>
@@ -169,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680304342244</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="migrated password into dataclass that automatically gets created in the database&#10;docker-compose helps by deploying test db">
+      <created>1680346511463</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680346511463</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +189,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial project" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="migrated password into dataclass that automatically gets created in the database&#10;docker-compose helps by deploying test db" />
+    <option name="LAST_COMMIT_MESSAGE" value="migrated password into dataclass that automatically gets created in the database&#10;docker-compose helps by deploying test db" />
   </component>
 </project>

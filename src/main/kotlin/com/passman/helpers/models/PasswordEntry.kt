@@ -2,7 +2,7 @@ package com.passman.helpers.models
 
 import org.jetbrains.exposed.sql.*
 
-data class Password(
+data class PasswordEntry(
     val id: Int,
     val domain: String,
     val username: String,
@@ -12,7 +12,7 @@ data class Password(
     val roles: List<String>
 )
 
-object Passwords : Table() {
+object PasswordEntries : Table() {
     val id = integer("id").autoIncrement()
     val domain = varchar("domain", 255)
     val username = varchar("username", 255)
