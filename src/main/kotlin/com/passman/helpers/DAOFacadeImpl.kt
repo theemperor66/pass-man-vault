@@ -29,7 +29,11 @@ class DAOFacadeImpl : DAOFacade {
     }
 
     override suspend fun getUserById(id: Int): User? {
-        return Users.select { Users.id eq id }.map(::resultRowToUser).firstOrNull()
+        var user: User? = null
+        transaction {
+            user = Users.select { Users.id eq id }.map(::resultRowToUser).firstOrNull()
+        }
+        return user
     }
 
     override suspend fun getUserByUsername(username: String): User? {
