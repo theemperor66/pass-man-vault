@@ -89,11 +89,6 @@
             <version>${ktor_version}</version>
         </dependency>
         <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>3.2.1</version>
-        </dependency>
-        <dependency>
             <groupId>io.ktor</groupId>
             <artifactId>ktor-server-caching-headers-jvm</artifactId>
             <version>${ktor_version}</version>
