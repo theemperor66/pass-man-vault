@@ -1,8 +1,10 @@
 package com.passman.helpers
 
 import com.passman.helpers.models.*
+import com.typesafe.config.ConfigException.Null
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
+import org.jetbrains.exposed.sql.transactions.transaction
 
 class DAOFacadeImpl : DAOFacade {
 
@@ -31,14 +33,20 @@ class DAOFacadeImpl : DAOFacade {
     }
 
     override suspend fun getUserByUsername(username: String): User? {
-        return Users.select { Users.username eq username }.map(::resultRowToUser).firstOrNull()
+        var user: User? = null
+        transaction {
+            user = Users.select { Users.username eq username }.map(::resultRowToUser).firstOrNull()
+        }
+        return user
     }
 
     override suspend fun addUser(user: User): Boolean {
-        Users.insert {
-            it[email] = user.email
-            it[passwordHash] = user.passwordHash
-            it[this.username] = user.username
+        transaction {
+            Users.insert {
+                it[email] = user.email
+                it[passwordHash] = user.passwordHash
+                it[this.username] = user.username
+            }
         }
         return true
     }
