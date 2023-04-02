@@ -23,6 +23,7 @@ fun Application.module() {
     }
     install(Sessions) {
         cookie<UserSession>("SESSION") {
+            cookie.maxAgeInSeconds = 10
             transform(SessionTransportTransformerMessageAuthentication("mmwidmadoddw".toByteArray()))
         }
     }
