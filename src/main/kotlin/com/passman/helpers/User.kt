@@ -1,5 +1,5 @@
 package com.passman.helpers
-
+/*
 data class User (
     private var email: String,
     private var password: String,
@@ -119,3 +119,5 @@ data class User (
         return enteredPassword == password
     }
 }
+
+ */

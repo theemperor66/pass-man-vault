@@ -10,9 +10,9 @@ data class User(
 )
 
 object Users : Table() {
-    val id = integer("id").autoIncrement()
+    val id = integer("id").uniqueIndex().autoIncrement()
     var email = varchar("email", 255)
     var passwordHash = varchar("passwordHash", 255)
-    val username = varchar("username", 255)
+    val username = varchar("username", 255).uniqueIndex()
     override val primaryKey = PrimaryKey(PasswordEntries.id)
 }

@@ -4,12 +4,11 @@ import org.jetbrains.exposed.sql.*
 
 data class PasswordEntry(
     val id: Int,
-    val domain: String,
-    val username: String,
-    val annot: String,
-    val passwordEncrypted: String,
-    val owner: String,
-    val roles: List<String>
+    var domain: String,
+    var username: String,
+    var annot: String,
+    var passwordEncrypted: String,
+    val owner: Int,
 )
 
 object PasswordEntries : Table() {
@@ -18,7 +17,7 @@ object PasswordEntries : Table() {
     val username = varchar("username", 255)
     val annot = varchar("annot", 255)
     val passwordEncrypted = varchar("passwordEncrypted", 255)
-    val owner = varchar("owner", 255)
+    val owner = integer("owner").uniqueIndex().references(Users.id)
     val roles = varchar("roles", 255)
 
     override val primaryKey = PrimaryKey(id)
