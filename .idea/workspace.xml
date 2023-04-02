@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38fed18c-04e6-4ee8-9669-18d985a36a1a" name="Changes" comment="migrated password into dataclass that automatically gets created in the database&#10;docker-compose helps by deploying test db">
+    <list default="true" id="38fed18c-04e6-4ee8-9669-18d985a36a1a" name="Changes" comment="fix">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/helpers/DatabaseFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/passman/helpers/DatabaseFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/helpers/Role.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/passman/helpers/Team.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +23,7 @@
         <option value="Kotlin Class" />
         <option value="Kotlin Object" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -37,20 +43,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ktor.last.update.timestamp&quot;: &quot;1680302417533&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ktor.last.update.timestamp": "1680445361390",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Kotlin.ApplicationKt">
     <configuration name="ApplicationKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.ApplicationKt" />
@@ -118,7 +124,7 @@
       <option name="presentableId" value="Default" />
       <updated>1680302097923</updated>
       <workItem from="1680302100281" duration="3943000" />
-      <workItem from="1680342305723" duration="5212000" />
+      <workItem from="1680342305723" duration="8800000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1680302680116</created>
@@ -169,7 +175,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680346511463</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="migrated password into dataclass that automatically gets created in the database&#10;docker-compose helps by deploying test db">
+      <created>1680349134124</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680349134124</updated>
+    </task>
+    <task id="LOCAL-00009" summary="migrated password into dataclass that automatically gets created in the database&#10;docker-compose helps by deploying test db">
+      <created>1680349192164</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680349192164</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix">
+      <created>1680349253219</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680349253219</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +217,7 @@
     <MESSAGE value="initial project" />
     <MESSAGE value="fixes" />
     <MESSAGE value="migrated password into dataclass that automatically gets created in the database&#10;docker-compose helps by deploying test db" />
-    <option name="LAST_COMMIT_MESSAGE" value="migrated password into dataclass that automatically gets created in the database&#10;docker-compose helps by deploying test db" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>

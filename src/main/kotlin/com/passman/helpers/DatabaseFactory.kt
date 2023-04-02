@@ -8,6 +8,8 @@ import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.*
 import org.jetbrains.exposed.sql.transactions.experimental.*
 
+
+
 object DatabaseFactory {
     fun init(environment: ApplicationEnvironment, log: Logger) {
         val driverClassName = environment.config.propertyOrNull("db.driverClassName")?.getString()
