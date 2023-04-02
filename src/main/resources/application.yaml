@@ -4,6 +4,9 @@ ktor:
       - com.passman.ApplicationKt.module
   deployment:
     port: 80
+    https: false
+  sessions:
+    secret: osjd98eoij3üeüi!)=iuwh972ikeoje2ß33093484z79!09#dli9e98ijowmdklöpdkoijpuöhog9f # change this if you're not stupid
 db:
   jdbcUrl: "jdbc:postgresql://localhost:5432/Passman"
   driverClassName: "org.postgresql.Driver"
