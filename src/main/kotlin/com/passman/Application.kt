@@ -12,7 +12,6 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
-import org.jetbrains.exposed.sql.transactions.transaction
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
@@ -47,7 +46,13 @@ fun Application.module() {
     val dao = DAOFacadeImpl()
     routing {
         get("/") {
-            call.respondText("Hello, world!")
+            // validate the user session
+            val user = call.sessions.get<UserSession>()?.let { dao.getUserById(it.userId) }
+            if (user != null) {
+                call.respondText("Hello, ${user.username}!")
+            } else {
+                call.respondText("Hello, world!")
+            }
         }
         post("/register") {
             // body to RegisterRequest object
@@ -62,7 +67,6 @@ fun Application.module() {
             println(user)
             // insert user into db
             dao.addUser(user)
-
             // respond with user object
             call.respond(user)
         }
