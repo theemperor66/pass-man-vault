@@ -3,7 +3,9 @@ package com.passman
 import com.passman.helpers.UserSession
 import com.passman.helpers.DAOFacadeImpl
 import com.passman.helpers.DatabaseFactory
+import com.passman.helpers.models.PasswordEntry
 import com.passman.helpers.models.User
+import com.passman.helpers.requests.PasswordEntryCreateRequest
 import com.passman.helpers.requests.RegisterRequest
 import io.ktor.http.*
 import io.ktor.serialization.gson.*
@@ -96,6 +98,32 @@ fun Application.module() {
                 }
             } else {
                 call.respondText("User not found")
+            }
+        }
+        post("/addPwEntry"){
+            val user = call.sessions.get<UserSession>()?.let { dao.getUserById(it.userId) }
+            if(user != null) {
+                //add validation for pwEntry!
+                val pwEntry = call.receive<PasswordEntryCreateRequest>()
+                val to_add = PasswordEntry(
+                    0,
+                    pwEntry.domain,
+                    pwEntry.username,
+                    pwEntry.annot,
+                    pwEntry.passwordEncrypted,
+                    0
+                )
+                val entry = dao.addPasswordEntry(to_add)
+                if (entry != null) {
+                    call.respondText("Added Entry")
+
+
+                } else {
+                    call.respondText("Error while adding Entry")
+                }
+            }
+            else{
+                call.respondText("login first!")
             }
         }
     }

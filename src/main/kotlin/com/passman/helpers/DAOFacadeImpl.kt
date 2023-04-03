@@ -85,12 +85,14 @@ class DAOFacadeImpl : DAOFacade {
     }
 
     override suspend fun addPasswordEntry(passwordEntry: PasswordEntry): PasswordEntry {
+        transaction {
         PasswordEntries.insert {
             it[domain] = passwordEntry.domain
             it[username] = passwordEntry.username
             it[annot] = passwordEntry.annot
             it[passwordEncrypted] = passwordEntry.passwordEncrypted
             it[owner] = passwordEntry.owner
+        }
         }
         return passwordEntry
     }
