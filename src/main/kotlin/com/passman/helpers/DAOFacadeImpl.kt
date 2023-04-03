@@ -85,7 +85,11 @@ class DAOFacadeImpl : DAOFacade {
     }
 
     override suspend fun getPasswordEntriesByDomain(domain: String): List<PasswordEntry> {
-        return PasswordEntries.select { PasswordEntries.domain eq domain }.map(::resultRowToPasswordEntry)
+        var entries: List<PasswordEntry>? = null
+        transaction {
+            entries = PasswordEntries.select { PasswordEntries.domain like domain }.map(::resultRowToPasswordEntry)
+        }
+        return entries ?: listOf()
     }
 
     override suspend fun addPasswordEntry(passwordEntry: PasswordEntry): PasswordEntry {
