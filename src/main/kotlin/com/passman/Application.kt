@@ -38,7 +38,7 @@ fun Application.module() {
     install(Authentication) {
         session<UserSession>("auth-session") {
             validate { session ->
-                if (session != null && session.userId >= 0) {
+                if (session.userId >= 0) {
                     // Validate the user session here
                     if (db.getUserById(session.userId) != null && session.expireTimestamp > System.currentTimeMillis()) {
                         session
