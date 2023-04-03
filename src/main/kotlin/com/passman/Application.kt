@@ -101,7 +101,7 @@ fun Application.module() {
                 call.respondText("User not found")
             }
         }
-        post("/addPwEntry") {
+        post("/addPasswordEntry") {
             val user = call.sessions.get<UserSession>()?.let { dao.getUserById(it.userId) }
             if (user != null) {
                 //add validation for pwEntry!
@@ -120,7 +120,7 @@ fun Application.module() {
                 call.respondText("login first!")
             }
         }
-        get("/getPwEntries") {
+        get("/getPasswordEntries") {
             val user = call.sessions.get<UserSession>()?.let { dao.getUserById(it.userId) }
             if (user != null) {
                 val pwEntries = dao.getPasswordEntriesByOwner(user.id)
