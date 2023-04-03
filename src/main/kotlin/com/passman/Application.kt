@@ -138,7 +138,7 @@ fun Application.module() {
             val user = call.sessions.get<UserSession>()?.let { db.getUserById(it.userId) }
             if (user != null) {
                 val searchRequest = call.receive<PasswordEntryRetrievalRequest>()
-                // TODO search with like and dont ignore annotation
+                // TODO dont ignore annotation
                 val passwordEntries = db.getPasswordEntriesByDomain(searchRequest.domain)
                 call.respond(passwordEntries)
             } else {
