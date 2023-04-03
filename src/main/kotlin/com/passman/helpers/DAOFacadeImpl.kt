@@ -77,7 +77,11 @@ class DAOFacadeImpl : DAOFacade {
     }
 
     override suspend fun getPasswordEntriesByOwner(owner: Int): List<PasswordEntry> {
-        return PasswordEntries.select { PasswordEntries.owner eq owner }.map(::resultRowToPasswordEntry)
+        var entries: List<PasswordEntry>? = null
+        transaction {
+            entries = PasswordEntries.select { PasswordEntries.owner eq owner }.map(::resultRowToPasswordEntry)
+        }
+        return entries ?: listOf()
     }
 
     override suspend fun getPasswordEntriesByDomain(domain: String): List<PasswordEntry> {
@@ -86,13 +90,13 @@ class DAOFacadeImpl : DAOFacade {
 
     override suspend fun addPasswordEntry(passwordEntry: PasswordEntry): PasswordEntry {
         transaction {
-        PasswordEntries.insert {
-            it[domain] = passwordEntry.domain
-            it[username] = passwordEntry.username
-            it[annot] = passwordEntry.annot
-            it[passwordEncrypted] = passwordEntry.passwordEncrypted
-            it[owner] = passwordEntry.owner
-        }
+            PasswordEntries.insert {
+                it[domain] = passwordEntry.domain
+                it[username] = passwordEntry.username
+                it[annot] = passwordEntry.annot
+                it[passwordEncrypted] = passwordEntry.passwordEncrypted
+                it[owner] = passwordEntry.owner
+            }
         }
         return passwordEntry
     }

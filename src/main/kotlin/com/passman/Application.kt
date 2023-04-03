@@ -120,6 +120,15 @@ fun Application.module() {
                 call.respondText("login first!")
             }
         }
+        get("/getPwEntries") {
+            val user = call.sessions.get<UserSession>()?.let { dao.getUserById(it.userId) }
+            if (user != null) {
+                val pwEntries = dao.getPasswordEntriesByOwner(user.id)
+                call.respond(pwEntries)
+            } else {
+                call.respondText("login first!")
+            }
+        }
     }
 
 }
