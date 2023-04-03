@@ -1,12 +1,8 @@
 package com.passman
 
-import com.passman.helpers.UserSession
-import com.passman.helpers.DAOFacadeImpl
-import com.passman.helpers.DatabaseFactory
-import com.passman.helpers.models.PasswordEntry
-import com.passman.helpers.models.User
-import com.passman.helpers.requests.PasswordEntryCreateRequest
-import com.passman.helpers.requests.RegisterRequest
+import com.passman.helpers.*
+import com.passman.helpers.models.*
+import com.passman.helpers.requests.*
 import io.ktor.serialization.gson.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -81,8 +77,14 @@ fun Application.module() {
             println(user)
             // insert user into db
             dao.addUser(user)
-            // respond with user object
-            call.respond(user)
+            // retrieve user from db
+            val userFromDb = dao.getUserByUsername(user.username)
+            if (userFromDb != null) {
+                // respond with user object
+                call.respond(userFromDb)
+            } else {
+                call.respondText("User could not be registered")
+            }
         }
         post("/login") {
             val loginRequest = call.receive<RegisterRequest>()
@@ -98,9 +100,9 @@ fun Application.module() {
                 call.respondText("User not found")
             }
         }
-        post("/addPwEntry"){
+        post("/addPwEntry") {
             val user = call.sessions.get<UserSession>()?.let { dao.getUserById(it.userId) }
-            if(user != null) {
+            if (user != null) {
                 //add validation for pwEntry!
                 val pwEntry = call.receive<PasswordEntryCreateRequest>()
                 val toAdd = PasswordEntry(
@@ -113,8 +115,7 @@ fun Application.module() {
                 )
                 dao.addPasswordEntry(toAdd)
                 call.respondText("Added Entry")
-            }
-            else{
+            } else {
                 call.respondText("login first!")
             }
         }
