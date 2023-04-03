@@ -12,6 +12,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
 
+
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module() {
@@ -111,7 +112,7 @@ fun Application.module() {
                     pwEntry.username,
                     pwEntry.annot,
                     pwEntry.passwordEncrypted,
-                    0
+                    user.id
                 )
                 dao.addPasswordEntry(toAdd)
                 call.respondText("Added Entry")
