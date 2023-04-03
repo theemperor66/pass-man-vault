@@ -7,7 +7,6 @@ import com.passman.helpers.models.PasswordEntry
 import com.passman.helpers.models.User
 import com.passman.helpers.requests.PasswordEntryCreateRequest
 import com.passman.helpers.requests.RegisterRequest
-import io.ktor.http.*
 import io.ktor.serialization.gson.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -16,7 +15,6 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
-import java.sql.Timestamp
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
@@ -105,7 +103,7 @@ fun Application.module() {
             if(user != null) {
                 //add validation for pwEntry!
                 val pwEntry = call.receive<PasswordEntryCreateRequest>()
-                val to_add = PasswordEntry(
+                val toAdd = PasswordEntry(
                     0,
                     pwEntry.domain,
                     pwEntry.username,
@@ -113,14 +111,8 @@ fun Application.module() {
                     pwEntry.passwordEncrypted,
                     0
                 )
-                val entry = dao.addPasswordEntry(to_add)
-                if (entry != null) {
-                    call.respondText("Added Entry")
-
-
-                } else {
-                    call.respondText("Error while adding Entry")
-                }
+                val entry = dao.addPasswordEntry(toAdd)
+                call.respondText("Added Entry")
             }
             else{
                 call.respondText("login first!")
