@@ -111,7 +111,7 @@ fun Application.module() {
                     pwEntry.passwordEncrypted,
                     0
                 )
-                val entry = dao.addPasswordEntry(toAdd)
+                dao.addPasswordEntry(toAdd)
                 call.respondText("Added Entry")
             }
             else{
