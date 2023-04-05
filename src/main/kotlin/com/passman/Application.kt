@@ -99,6 +99,7 @@ fun Application.module() {
                 if (user.passwordHash == loginRequest.passwordHash) {
                     val session = UserSession(user.id, System.currentTimeMillis() + 600 * 1000)
                     call.sessions.set(session)
+                    call.respond(session)
                 } else {
                     call.response.status(HttpStatusCode.Unauthorized)
                     call.respondText("Wrong password")
