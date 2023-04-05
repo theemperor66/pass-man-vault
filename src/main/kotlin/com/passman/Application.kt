@@ -55,7 +55,7 @@ fun Application.module() {
             }
         }
     }
-    DatabaseFactory.init(environment = environment, log = environment.log)
+    DatabaseFactory.initEmbedded(log = environment.log)
     routing {
         get("/") {
             // validate the user session
