@@ -55,7 +55,11 @@ fun Application.module() {
             }
         }
     }
-    DatabaseFactory.initEmbedded(log = environment.log)
+    if (environment.config.property("db.embedded").getString().lowercase() == "true") {
+        DatabaseFactory.initEmbedded(environment.log)
+    } else {
+        DatabaseFactory.init(environment, environment.log)
+    }
     routing {
         get("/") {
             // validate the user session
