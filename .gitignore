@@ -37,3 +37,6 @@ out/
 
 target
 /.idea/
+
+### H2 Database ###
+*.db
