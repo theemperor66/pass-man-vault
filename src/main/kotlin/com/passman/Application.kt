@@ -141,13 +141,33 @@ fun Application.module() {
         post("/searchPasswordEntries") {
             val user = call.sessions.get<UserSession>()?.let { db.getUserById(it.userId) }
             if (user != null) {
-                val searchRequest = call.receive<PasswordEntryRetrievalRequest>()
+                val searchRequest = call.receive<PasswordEntrySearchRequest>()
                 // TODO dont ignore annotation
                 val passwordEntries = db.getPasswordEntriesByDomain(searchRequest.domain)
                 call.respond(passwordEntries)
             } else {
                 call.response.status(HttpStatusCode.Unauthorized)
                 call.respondText("login first!")
+            }
+        }
+        // get password by edit
+        post("/getPasswordById") {
+            val user = call.sessions.get<UserSession>()?.let { db.getUserById(it.userId) }
+            if (user != null) {
+                val retrievalRequest = call.receive<PasswordEntryRetrievalRequest>()
+                val passwordEntry = db.getPasswordEntryById(retrievalRequest.id)
+                if (passwordEntry != null) {
+                    if (passwordEntry.owner == user.id) {
+                        call.respond(passwordEntry)
+                    } else {
+                        //http code unauthorized
+                        call.response.status(HttpStatusCode.Unauthorized)
+                        call.respondText("You are not the owner of this entry")
+                    }
+                } else {
+                    call.response.status(HttpStatusCode.NotFound)
+                    call.respondText("Entry not found")
+                }
             }
         }
         post("/deletePasswordEntry") {
