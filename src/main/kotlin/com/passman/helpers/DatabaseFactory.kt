@@ -45,13 +45,15 @@ object DatabaseFactory {
             transaction(database)
             {
                 // Create the database schema if it doesn't already exist
-                SchemaUtils.createMissingTablesAndColumns(PasswordEntries, Users)
+                SchemaUtils.create(PasswordEntries)
+                SchemaUtils.create(Users)
             }
         }
         transaction(database)
         {
             // Create the database schema if it doesn't already exist
-            SchemaUtils.createMissingTablesAndColumns(PasswordEntries, Users)
+            SchemaUtils.create(PasswordEntries)
+            SchemaUtils.create(Users)
         }
     }
 
@@ -82,8 +84,8 @@ object DatabaseFactory {
     fun initEmbedded(log: Logger) {
         val database = Database.connect("jdbc:h2:file:./test;DB_CLOSE_DELAY=-1;", driver = "org.h2.Driver")
         transaction(database) {
-            SchemaUtils.createMissingTablesAndColumns(PasswordEntries, Users)
-            SchemaUtils.createDatabase()
+            SchemaUtils.create(PasswordEntries)
+            SchemaUtils.create(Users)
         }
     }
 
