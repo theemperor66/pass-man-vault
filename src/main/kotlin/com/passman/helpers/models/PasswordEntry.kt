@@ -17,7 +17,7 @@ object PasswordEntries : Table() {
     val username = varchar("username", 255)
     val annot = varchar("annot", 255)
     val passwordEncrypted = varchar("passwordEncrypted", 255)
-    val owner = integer("owner").uniqueIndex().references(Users.id)
+    val owner = integer("owner").references(Users.id)
 
     override val primaryKey = PrimaryKey(id)
 }

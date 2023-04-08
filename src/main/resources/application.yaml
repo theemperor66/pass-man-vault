@@ -9,7 +9,7 @@ ktor:
     secret: osjd98eoij3üeüi!)=iuwh972ikeoje2ß33093484z79!09#dli9e98ijowmdklöpdkoijpuöhog9f # change this if you're not stupid
 db:
   embedded: true
-  jdbcUrl: "jdbc:postgresql://localhost:5432/Passman"
+  jdbcUrl: "jdbc:postgresql://localhost:5432/passman"
   driverClassName: "org.postgresql.Driver"
   username: "admin"
   password: "example"
