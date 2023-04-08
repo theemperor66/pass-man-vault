@@ -151,7 +151,7 @@ fun Application.module() {
                 call.respondText("login first!")
             }
         }
-        // get password by edit
+        // get password by id
         post("/getPasswordById") {
             val user = call.sessions.get<UserSession>()?.let { db.getUserById(it.userId) }
             if (user != null) {
