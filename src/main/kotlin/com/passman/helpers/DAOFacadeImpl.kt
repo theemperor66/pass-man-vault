@@ -73,7 +73,11 @@ class DAOFacadeImpl : DAOFacade {
     }
 
     override suspend fun getPasswordEntryById(id: Int): PasswordEntry? {
-        return PasswordEntries.select { PasswordEntries.id eq id }.map(::resultRowToPasswordEntry).firstOrNull()
+        var pwEntry: PasswordEntry? = null
+        transaction {
+            pwEntry = PasswordEntries.select { PasswordEntries.id eq id }.map(::resultRowToPasswordEntry).firstOrNull()
+        }
+        return pwEntry
     }
 
     override suspend fun getPasswordEntriesByOwner(owner: Int): List<PasswordEntry> {
