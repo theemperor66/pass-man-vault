@@ -126,7 +126,16 @@ class DAOFacadeImpl : DAOFacade {
     }
 
     override suspend fun deletePasswordEntry(id: Int): Boolean {
-        PasswordEntries.deleteWhere { PasswordEntries.id eq id }
+        var pwEntry: PasswordEntry? = null
+        transaction {
+            pwEntry = PasswordEntries.select { PasswordEntries.id eq id }.map(::resultRowToPasswordEntry).firstOrNull()
+        }
+        if (pwEntry == null) {
+            return false
+        }
+        transaction {
+            PasswordEntries.deleteWhere { PasswordEntries.id eq id }
+        }
         return true
     }
 }
