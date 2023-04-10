@@ -171,6 +171,29 @@ fun Application.module() {
                 }
             }
         }
+        post("/updatePasswordEntry") {
+            val user = call.sessions.get<UserSession>()?.let { db.getUserById(it.userId) }
+            if (user != null) {
+                val updateRequest = call.receive<PasswordEntryUpdateRequest>()
+                val passwordEntry = db.getPasswordEntryById(updateRequest.id)
+                if(passwordEntry != null) {
+                    if(passwordEntry.owner == user.id) {
+                        db.updatePasswordEntry(passwordEntry.id, updateRequest.domain, updateRequest.username, updateRequest.annot, updateRequest.passwordEncrypted)
+                        call.respondText("Updated Entry")
+                    } else {
+                        call.response.status(HttpStatusCode.Unauthorized)
+                        call.respondText("You are not the owner of this entry")
+                    }
+                } else {
+                    call.response.status(HttpStatusCode.NotFound)
+                    call.respondText("Entry not found")
+                }
+            }
+            else {
+                call.response.status(HttpStatusCode.Unauthorized)
+                call.respondText("login first!")
+            }
+        }
         post("/deletePasswordEntry") {
             val user = call.sessions.get<UserSession>()?.let { db.getUserById(it.userId) }
             if (user != null) {
