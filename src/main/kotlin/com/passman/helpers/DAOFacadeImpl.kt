@@ -116,11 +116,13 @@ class DAOFacadeImpl : DAOFacade {
         annot: String,
         passwordEncrypted: String
     ): Boolean {
-        PasswordEntries.update({ PasswordEntries.id eq id }) {
-            it[PasswordEntries.domain] = domain
-            it[PasswordEntries.username] = username
-            it[PasswordEntries.annot] = annot
-            it[PasswordEntries.passwordEncrypted] = passwordEncrypted
+        transaction {
+            PasswordEntries.update({ PasswordEntries.id eq id }) {
+                it[PasswordEntries.domain] = domain
+                it[PasswordEntries.username] = username
+                it[PasswordEntries.annot] = annot
+                it[PasswordEntries.passwordEncrypted] = passwordEncrypted
+            }
         }
         return true
     }
