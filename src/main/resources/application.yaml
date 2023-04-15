@@ -2,6 +2,8 @@ ktor:
   application:
     modules:
       - com.passman.ApplicationKt.module
+  logback:
+    jvmDefault: true
   deployment:
     port: 80
     https: false
