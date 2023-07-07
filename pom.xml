@@ -14,7 +14,7 @@
         <logback_version>1.2.11</logback_version>
         <prometeus_version>1.6.3</prometeus_version>
         <postgres_version>42.5.1</postgres_version>
-        <h2_version>2.1.214</h2_version>
+        <h2_version>2.2.220</h2_version>
         <exposed_version>0.41.1</exposed_version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
